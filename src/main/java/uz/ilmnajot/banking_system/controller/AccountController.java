@@ -29,8 +29,9 @@ public class AccountController {
                         .build()
                 );
     }
+
     @GetMapping
-    public ResponseEntity<ApiResponse> getMyAccounts(){
+    public ResponseEntity<ApiResponse> getMyAccounts() {
         return ResponseEntity.ok(
                 ApiResponse
                         .builder()

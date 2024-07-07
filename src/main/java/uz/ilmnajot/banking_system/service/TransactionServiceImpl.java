@@ -53,7 +53,7 @@ public class TransactionServiceImpl implements TransactionService {
 
     private Long performWithdraw(Account account, double amount) {
         if (account.getBalance() < amount) {
-            throw new LowBalanceException("Yout Balance " + account.getBalance() + " is not enough to withdraw " + amount);
+            throw new LowBalanceException("Your Balance " + account.getBalance() + " is not enough to withdraw " + amount);
         }
         updateAccountBalance(account, -amount);
         Transaction transaction = transactionRepository.save(transactionMapper.toEntity(amount, account, TransactionType.WITHDRAW));
