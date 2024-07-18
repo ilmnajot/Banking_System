@@ -1,10 +1,11 @@
-package uz.ilmnajot.banking_system.mapper;
+package uz.ilmnajot.banking_system.mapper.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import uz.ilmnajot.banking_system.entity.User;
 import uz.ilmnajot.banking_system.enums.Role;
+import uz.ilmnajot.banking_system.mapper.UserMapper;
 import uz.ilmnajot.banking_system.model.request.RegisterRequest;
 
 @Component

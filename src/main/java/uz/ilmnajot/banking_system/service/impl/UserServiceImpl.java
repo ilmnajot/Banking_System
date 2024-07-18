@@ -1,4 +1,4 @@
-package uz.ilmnajot.banking_system.service;
+package uz.ilmnajot.banking_system.service.impl;
 
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
@@ -8,6 +8,7 @@ import uz.ilmnajot.banking_system.entity.User;
 import uz.ilmnajot.banking_system.mapper.UserProfileMapper;
 import uz.ilmnajot.banking_system.model.response.UserProfileResponse;
 import uz.ilmnajot.banking_system.repository.UserRepository;
+import uz.ilmnajot.banking_system.service.UserService;
 
 @Service
 @RequiredArgsConstructor

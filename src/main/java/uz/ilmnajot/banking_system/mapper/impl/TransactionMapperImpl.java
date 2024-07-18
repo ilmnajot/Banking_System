@@ -7,23 +7,25 @@ import uz.ilmnajot.banking_system.enums.TransactionType;
 import uz.ilmnajot.banking_system.mapper.TransactionMapper;
 import uz.ilmnajot.banking_system.model.response.TransactionResponse;
 
+import java.math.BigDecimal;
+
 @Component
 public class TransactionMapperImpl implements TransactionMapper {
 
 
     @Override
-    public Transaction toEntity(double amount, Account account, TransactionType type) {
+    public Transaction toEntity(BigDecimal amount, Account account, TransactionType type) {
         return Transaction
                 .builder()
                 .amount(amount)
-                .account(account)
+                .toAccount(account)
                 .type(type)
                 .notes("Account Balance" + account.getBalance())
                 .build();
     }
 
     @Override
-    public TransactionResponse toResponse(Long id, double amount, double balance) {
+    public TransactionResponse toResponse(Long id, BigDecimal amount, BigDecimal balance) {
         return TransactionResponse
                 .builder()
                 .id(id)

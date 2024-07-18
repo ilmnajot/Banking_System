@@ -1,4 +1,4 @@
-package uz.ilmnajot.banking_system.service;
+package uz.ilmnajot.banking_system.service.impl;
 
 import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityNotFoundException;
@@ -12,7 +12,8 @@ import uz.ilmnajot.banking_system.model.request.LoginRequest;
 import uz.ilmnajot.banking_system.model.request.RegisterRequest;
 import uz.ilmnajot.banking_system.model.response.AuthResponse;
 import uz.ilmnajot.banking_system.repository.UserRepository;
-import uz.ilmnajot.banking_system.security.jwt.JwtService;
+import uz.ilmnajot.banking_system.security.JwtService;
+import uz.ilmnajot.banking_system.service.AuthService;
 
 @Service
 @RequiredArgsConstructor
@@ -28,6 +29,7 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public AuthResponse register(RegisterRequest request) {
+
         if (isEmailOrPhoneAlreadyExists(request.getEmail(), request.getPhone())) {
             throw new EntityExistsException("Email or Phone is already exists");
         }

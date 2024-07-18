@@ -7,6 +7,8 @@ import jakarta.persistence.ManyToOne;
 import lombok.*;
 import uz.ilmnajot.banking_system.base.BaseEntity;
 
+import java.math.BigDecimal;
+
 @EqualsAndHashCode(callSuper = true)
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,7 +24,7 @@ public class Account extends BaseEntity {
     private String ccv;
 
     @Column(nullable = false)
-    private Double balance;
+    private BigDecimal balance;
 
     @ManyToOne
     private User user;

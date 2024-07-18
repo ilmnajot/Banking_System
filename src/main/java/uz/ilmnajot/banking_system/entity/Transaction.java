@@ -9,6 +9,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 import uz.ilmnajot.banking_system.base.BaseEntity;
 import uz.ilmnajot.banking_system.enums.TransactionType;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Data
@@ -17,6 +18,8 @@ import java.time.LocalDateTime;
 @Entity(name = "TRANSACTION")
 @Builder
 public class Transaction {
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -25,12 +28,17 @@ public class Transaction {
     private TransactionType type;
 
     @Column(nullable = false)
-    private Double amount;
+    private BigDecimal amount;
 
     private String notes;
 
     @ManyToOne
-    private Account account;
+    @JoinColumn(name = "from_account")
+    private Account fromAccount;
+
+    @ManyToOne
+    @JoinColumn(name = "to_account")
+    private Account toAccount;
 
     @CreatedDate
     private LocalDateTime createdAt;
@@ -44,4 +52,6 @@ public class Transaction {
 
     @LastModifiedBy
     private Long updatedBy;
+
+
 }

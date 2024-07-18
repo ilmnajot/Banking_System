@@ -1,4 +1,4 @@
-package uz.ilmnajot.banking_system.security.jwt;
+package uz.ilmnajot.banking_system.security;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;

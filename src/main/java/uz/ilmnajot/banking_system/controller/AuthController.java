@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import uz.ilmnajot.banking_system.model.ApiResponse;
+import uz.ilmnajot.banking_system.model.common.ApiResponse;
 import uz.ilmnajot.banking_system.model.request.LoginRequest;
 import uz.ilmnajot.banking_system.model.request.RegisterRequest;
 import uz.ilmnajot.banking_system.service.AuthService;

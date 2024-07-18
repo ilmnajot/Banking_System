@@ -1,4 +1,4 @@
-package uz.ilmnajot.banking_system.service;
+package uz.ilmnajot.banking_system.service.impl;
 
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
@@ -10,8 +10,10 @@ import uz.ilmnajot.banking_system.mapper.AccountMapper;
 import uz.ilmnajot.banking_system.model.response.AccountResponse;
 import uz.ilmnajot.banking_system.repository.AccountRepository;
 import uz.ilmnajot.banking_system.repository.UserRepository;
+import uz.ilmnajot.banking_system.service.AccountService;
 import uz.ilmnajot.banking_system.utils.Utils;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -34,12 +36,13 @@ public class AccountServiceImpl implements AccountService {
                 .findByEmail(email)
                 .orElseThrow(() -> new EntityNotFoundException("User " + email + " Not Found"));
 
+        BigDecimal decimal = new BigDecimal(0);
         Account account = accountRepository.save(
                 Account
                         .builder()
                         .cardNumber(generateUniqueCardNumber())
                         .ccv(Utils.generateCVV())
-                        .balance(0.0)
+                        .balance(decimal)
                         .user(user)
                         .build()
         );

@@ -5,10 +5,12 @@ import uz.ilmnajot.banking_system.entity.Transaction;
 import uz.ilmnajot.banking_system.enums.TransactionType;
 import uz.ilmnajot.banking_system.model.response.TransactionResponse;
 
+import java.math.BigDecimal;
+
 public interface TransactionMapper {
 
 
-    Transaction toEntity(double amount, Account account, TransactionType type);
+    Transaction toEntity(BigDecimal amount, Account account, TransactionType type);
 
-    TransactionResponse toResponse(Long id, double amount, double balance);
+    TransactionResponse toResponse(Long id, BigDecimal amount, BigDecimal balance);
 }

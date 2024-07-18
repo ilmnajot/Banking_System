@@ -7,6 +7,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -17,7 +19,7 @@ public class DepositRequest {
     private String card_number;
 
     @NotNull(message = "Amount is required")
-    @Min(value = 0, message = "Ammount cannot be negative")
-    private Double amount;
+    @Min(value = 0, message = "Amount cannot be negative")
+    private BigDecimal amount;
 
 }

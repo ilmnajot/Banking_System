@@ -8,7 +8,7 @@ import org.springframework.security.authentication.AuthenticationCredentialsNotF
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
-import uz.ilmnajot.banking_system.model.ApiResponse;
+import uz.ilmnajot.banking_system.model.common.ApiResponse;
 
 import java.util.HashMap;
 import java.util.Map;

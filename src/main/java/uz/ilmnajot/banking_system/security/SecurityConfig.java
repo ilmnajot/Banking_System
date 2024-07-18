@@ -9,8 +9,6 @@ import org.springframework.security.config.annotation.web.configurers.AbstractHt
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.web.cors.CorsConfiguration;
-import uz.ilmnajot.banking_system.security.jwt.JwtFilter;
 
 @Configuration
 @EnableWebSecurity
@@ -26,7 +24,7 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-       return  http
+        return http
                 .cors(AbstractHttpConfigurer::disable)
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(requestMatcherRegistry -> requestMatcherRegistry
@@ -43,16 +41,15 @@ public class SecurityConfig {
                                 "/swagger-ui/**",
                                 "/webjars/**",
                                 "swagger-ui.html"
-
                         )
                         .permitAll()
                         .anyRequest()
                         .authenticated())
 
-               .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-               .authenticationProvider(authenticationProvider)
-               .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
-               .build();
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .authenticationProvider(authenticationProvider)
+                .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
+                .build();
 
     }
 }
