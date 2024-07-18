@@ -26,4 +26,5 @@ public class TransferRequest {
 
     private BigDecimal amount;
 
+
 }

@@ -14,12 +14,15 @@ import uz.ilmnajot.banking_system.model.request.TransferRequest;
 import uz.ilmnajot.banking_system.model.request.WithdrawRequest;
 import uz.ilmnajot.banking_system.service.TransactionService;
 
+import java.math.BigDecimal;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/transactions")
 public class TransactionController {
 
     private final TransactionService transactionService;
+
 
     @PostMapping("/deposit")
     public ResponseEntity<ApiResponse> deposit(@Valid @RequestBody DepositRequest request) {
